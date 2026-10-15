@@ -1,0 +1,17 @@
+#!/bin/bash
+# Driver: loads /app/src/stratdl.pl in gprolog and calls run/2 with the input and
+# output paths.
+set -u
+
+if [ $# -ne 2 ]; then
+    echo "usage: $0 <input> <output>" >&2
+    exit 1
+fi
+
+INPUT="$1"
+OUTPUT="$2"
+
+gprolog --quiet \
+    --consult-file /app/src/stratdl.pl \
+    --query-goal "run('$INPUT', '$OUTPUT')" \
+    > /dev/null 2>&1

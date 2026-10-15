@@ -1,0 +1,6 @@
+% ancestry over a small parent relation
+parent(tom, bob).
+parent(bob, ann).
+parent(ann, sue).
+ancestor(X, Y) :- parent(X, Y).
+ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).

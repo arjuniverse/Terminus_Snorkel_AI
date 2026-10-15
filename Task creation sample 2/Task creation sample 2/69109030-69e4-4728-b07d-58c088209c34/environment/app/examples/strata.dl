@@ -1,0 +1,8 @@
+% two negation layers: q depends on not-p, r depends on not-q
+base(a).
+base(b).
+base(c).
+p(X) :- base(X), sel(X).
+sel(a).
+q(X) :- base(X), not p(X).
+r(X) :- base(X), not q(X).

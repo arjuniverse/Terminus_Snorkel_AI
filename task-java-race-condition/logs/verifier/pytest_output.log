@@ -1,0 +1,42 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.1.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 5 items
+
+../tests/test_outputs.py::test_single_threaded_correctness FAILED        [ 20%]
+../tests/test_outputs.py::test_multi_run_consistency FAILED              [ 40%]
+../tests/test_outputs.py::test_no_exceptions PASSED                      [ 60%]
+../tests/test_outputs.py::test_output_format PASSED                      [ 80%]
+../tests/test_outputs.py::test_specific_known_values FAILED              [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_single_threaded_correctness _______________________
+/tests/test_outputs.py:62: in test_single_threaded_correctness
+    assert total == 50000, f"Expected 50000 total events, got {total}. Counts: {counts}"
+E   AssertionError: Expected 50000 total events, got 49878. Counts: {'TRACE': 9987, 'ERROR': 9974, 'INFO': 9988, 'DEBUG': 9969, 'WARN': 9960}
+E   assert 49878 == 50000
+__________________________ test_multi_run_consistency __________________________
+/tests/test_outputs.py:83: in test_multi_run_consistency
+    assert r == first, f"Run {i} produced different counts: expected {first}, got {r}"
+E   AssertionError: Run 1 produced different counts: expected {'TRACE': 9965, 'ERROR': 9966, 'INFO': 9966, 'DEBUG': 9867, 'WARN': 9963}, got {'TRACE': 9858, 'ERROR': 9956, 'INFO': 9878, 'DEBUG': 9914, 'WARN': 9858}
+E   assert {'DEBUG': 991...E': 9858, ...} == {'DEBUG': 986...E': 9965, ...}
+E     
+E     Differing items:
+E     {'WARN': 9858} != {'WARN': 9963}
+E     {'INFO': 9878} != {'INFO': 9966}
+E     {'TRACE': 9858} != {'TRACE': 9965}
+E     {'ERROR': 9956} != {'ERROR': 9966}
+E     {'DEBUG': 9914} != {'DEBUG': 9867}...
+E     
+E     ...Full output truncated (24 lines hidden), use '-vv' to show
+__________________________ test_specific_known_values __________________________
+/tests/test_outputs.py:133: in test_specific_known_values
+    assert total == 50000, f"Expected 50000 total, got {total}"
+E   AssertionError: Expected 50000 total, got 49784
+E   assert 49784 == 50000
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_single_threaded_correctness - Assertion...
+FAILED ../tests/test_outputs.py::test_multi_run_consistency - AssertionError:...
+FAILED ../tests/test_outputs.py::test_specific_known_values - AssertionError:...
+========================= 3 failed, 2 passed in 2.53s ==========================

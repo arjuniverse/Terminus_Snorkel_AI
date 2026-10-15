@@ -1,0 +1,44 @@
+version = "2.0"
+
+[metadata]
+task_id = "69109030-69e4-4728-b07d-58c088209c34"
+author_name = "anonymous"
+author_email = "anonymous"
+model_difficulty = "core"
+category = "software-engineering"
+subcategories = []
+codebase_size = "minimal"
+languages = [
+    "gnu-prolog",
+]
+tags = [
+    "gprolog",
+    "datalog",
+    "fixpoint",
+    "stratification",
+    "negation",
+    "deductive-database",
+]
+expert_time_estimate_min = 240
+junior_time_estimate_min = 480
+gpt_5_5_accuracy = 1.0
+claude_opus_4_8_accuracy = 0.2
+assigned_classifier_schema_version = "v2"
+assigned_category = "software-engineering"
+assigned_subcategory = "language_tooling"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 2700.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+docker_flags = []
+gpus = 0
+gpu_types = []

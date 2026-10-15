@@ -1,0 +1,7 @@
+% directed graph reachability (transitive closure)
+edge(a, b).
+edge(b, c).
+edge(c, d).
+edge(d, b).
+reach(X, Y) :- edge(X, Y).
+reach(X, Y) :- edge(X, Z), reach(Z, Y).

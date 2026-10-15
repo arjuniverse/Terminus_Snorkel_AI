@@ -1,0 +1,6 @@
+% items in the catalog that are not under recall (stratified negation)
+item(widget).
+item(gadget).
+item(gizmo).
+recalled(gadget).
+available(X) :- item(X), not recalled(X).
